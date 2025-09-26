@@ -2,9 +2,51 @@
 <html>
 <head>
     <title>Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right,rgb(82, 20, 9),rgb(234, 235, 238));
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .dashboard-container {
+            background: white;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            text-align: center;
+            width: 350px;
+        }
+
+        .dashboard-container h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .dashboard-container a {
+            display: inline-block;
+            text-decoration: none;
+            background:rgb(78, 6, 6);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .dashboard-container a:hover {
+            background: #e63946;
+        }
+    </style>
 </head>
 <body>
-    <h2>Welcome, {{ username }}!</h2>
-    <a href="{% url 'logout' %}">Logout</a>
+    <div class="dashboard-container">
+        <h2>Welcome, {{ username }}! </h2>
+        <a href="{% url 'logout' %}">Logout</a>
+    </div>
 </body>
 </html>

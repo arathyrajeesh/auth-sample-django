@@ -2,18 +2,90 @@
 <html>
 <head>
     <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, rgb(82, 20, 9), rgb(234, 235, 238));
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-container {
+            background: white;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            text-align: center;
+            width: 350px;
+        }
+
+        .login-container h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .login-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        .login-container button {
+            background:rgb(75, 7, 5);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            margin-top: 10px;
+            width: 100%;
+        }
+
+        .login-container button:hover {
+            background:rgb(160, 51, 47)
+;
+        }
+
+        .login-container p {
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .login-container a {
+            color:rgb(78, 6, 6);
+            text-decoration: none;
+        }
+
+        .login-container a:hover {
+            text-decoration: underline;
+        }
+
+        .error-message {
+            color: red;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
-    <h2>Login Page</h2>
-    {% if error %}
-        <p style="color:red;">{{ error }}</p>
-    {% endif %}
-    <form method="POST">
-        {% csrf_token %}
-        <input type="text" name="username" placeholder="Enter Username" required><br><br>
-        <input type="password" name="password" placeholder="Enter Password" required><br><br>
-        <button type="submit">Login</button>
-    </form>
-    <p>Don't have an account? <a href="{% url 'register' %}">Register here</a></p>
+    <div class="login-container">
+        <h2>Login Page</h2>
+        {% if error %}
+            <p class="error-message">{{ error }}</p>
+        {% endif %}
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="Enter Username" required><br/>
+            <input type="password" name="password" placeholder="Enter Password" required><br/>
+            <button type="submit">Login</button>
+        </form>
+        <p>Don't have an account? <a href="{% url 'register' %}">Register here</a></p>
+    </div>
 </body>
 </html>
